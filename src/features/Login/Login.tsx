@@ -63,12 +63,9 @@ export const Login = () => {
                         <TextField
                             label="Email"
                             margin="normal"
-                            name={'email'}
                             error={!!(formik.touched.email && formik.errors.email)}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.email}
                             helperText={formik.touched.email && formik.errors.email}
+                            {...formik.getFieldProps('email')}
                         />
 
 
@@ -76,11 +73,8 @@ export const Login = () => {
                             type="password"
                             label="Password"
                             margin="normal"
-                            name={'password'}
                             error={!!(formik.touched.password && formik.errors.password)}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.password}
+                            {...formik.getFieldProps('password')}
                         />
 
                         {formik.touched.password && formik.errors.password && <div style={{color: 'red'}}>{formik.errors.password}</div>}
